@@ -214,3 +214,87 @@ test_string_2 = "I'm going to VERB to the store and pick up a NOUN or two."
 print process_madlib(test_string_1)
 print process_madlib(test_string_2)
 
+days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+def how_many_days(month_number):
+	''' define a procedure, how_many_days, that takes as input
+	a number representing a month, and returns the number of 
+	days in the month. '''
+	return days_in_month[month_number-1]
+
+print how_many_days(1)
+
+spy = [0,0,7]
+def replace_spy(p):
+    p[2] = p[2] + 1
+replace_spy(spy)
+print spy
+
+number = 3
+
+def change_value(n):
+	n = n + 1
+	return n
+
+change_value(number)
+print number
+
+def sum_list(p):
+	''' define a procedure, sum_list, that takes as its input a
+	list of numbers, and returns the sum of the all the elements
+	in the input list. '''
+	sum = 0
+	for i in p:
+		sum = sum + i
+	return sum
+
+print sum_list([1,2,3])
+
+def measure_udacity(p):
+	''' define a procedure, measure_udacity, that takes as its input
+	a list of strings, and returns a number that is a count of 
+	the number of elements in the input list that start with the 
+	uppercase letter 'U'. '''
+	count = 0 # keep thrack of the count of the cases of uppercase of 'U'
+	for e in p:
+		if e[0] == 'U':
+			count += 1
+	return count
+
+print measure_udacity(['Dave','Sebastian','Katy'])
+
+print measure_udacity(['Umika','Umberto'])
+
+
+def find_element1(p,value):
+	''' define a procedure, find_element, that takes as its input a list
+	and a value of any type, and returns the index of the first element
+	in the input list htat matches the value. '''
+	i = 0
+	for e in p:
+		if e == value:
+			return i
+		i += 1
+	return -1
+		
+print find_element1([1,2,3],3)
+print find_element1(['alpha','beta'],'delf')
+
+def find_element2(p,t):
+	index = 0
+	while index < len(p):
+		if p[index] == t:
+			return index
+		index += 1
+	return -1
+
+print find_element2([1,2,3],3)
+print find_element2(['alpha','beta'],'alpha')
+
+def find_element(p,t):
+	if t in p:
+		return p.index(t)
+	return -1
+
+print find_element([1,2,3],3)
+print find_element(['alpha','beta'],'deli')
