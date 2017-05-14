@@ -298,3 +298,71 @@ def find_element(p,t):
 
 print find_element([1,2,3],3)
 print find_element(['alpha','beta'],'deli')
+
+def isLeapYear(year):
+	if year % 100 == 0:
+		if year % 400 == 0:
+			return True
+		return False
+	if year % 4 == 0:
+		return True
+	return False
+
+print isLeapYear(2004)
+
+
+
+# Given your birthday and the current date, calculate your age 
+# in days. Compensate for leap days. Assume that the birthday 
+# and current date are correct dates (and no time travel). 
+# Simply put, if you were born 1 Jan 2012 and todays date is 
+# 2 Jan 2012 you are 1 day old.
+
+def daysBetweenDates(y1,m1,d1,y2,m2,d2):
+	days = 0
+	if y2 - y1 > 0:  #当前日期的年份比出生日期大时
+		a = y1
+		while a < y2: #计算从出生的年份到当前年份的天数
+			if isLeapYear(a) and m1 <= 2: #出生是闰年且月份在2月之前
+				days += 366
+			else:
+				days += 365
+			if m2 - m1 > 0: #如果出生月份比当前月份小，则加上相应天数
+				b = m1
+				while b < m2:
+					if isLeapYear(a) and b == 2:
+						days += 29
+					else:
+						days += days_in_month[b]
+					b += 1
+			if m2 - m1 < 0: #如果出生月份比当前月份大，则减去相应天数
+				b = m2
+				while b < m1:
+					if isLeapYear(a) and b == 2:
+						days -=29
+					else:
+						days -= days_in_month[b-1]
+					b += 1
+			a += 1
+		days += d2 - d1
+		return days
+	if y2 - y1 == 0: #当前日期的年份与出生日期相同时，需要判断月份的大小
+		if m2 - m1 > 0: #出生的月份比当前月份小
+			b = m1
+			while b < m2:
+				if isLeapYear(y1) and b == 2: #当前是闰年且月份是2月份
+					days += 29
+				else:
+					days += days_in_month[b]
+				b += 1
+			days += d2 - d1
+			return days
+		if m2 - m1 == 0: #如果月份相同，则需要判断日期
+			if d2 - d1 >= 0: #如果出生日期比当前日期小或者相同
+				days += d2 - d1
+				return days
+			return "You are not born yet!"
+		return "You are not born yet!"
+	return "You are not born yet!"
+
+print daysBetweenDates(2016,5,15,2017,5,15)
