@@ -115,8 +115,7 @@ def box(txt):
 box("I am Smith")
 
 def weekend(day):
-	''' Define a pr
-	ocedure weekend which takes a string as its iput, and
+	''' Define a procedure weekend which takes a string as its iput, and
 	returns the boolean True if it's 'Saturday' or 'Sunday' and False otherwise '''
 	if day == 'Saturday' or day == 'Sunday':
 		return True
