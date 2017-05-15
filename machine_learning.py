@@ -365,4 +365,53 @@ def daysBetweenDates(y1,m1,d1,y2,m2,d2):
 		return "You are not born yet!"
 	return "You are not born yet!"
 
-print daysBetweenDates(2016,5,15,2017,5,15)
+print daysBetweenDates(2012, 6, 29, 2013, 6, 31)
+
+def nextDay(year, month, day):
+	''' Returns the year, month, day of the next day. Simply version:
+	assume every month has 30 days. '''
+	if day < 30:
+		day += 1
+		return year,month,day
+	else:
+		day = 1
+		if month < 12:
+			month += 1
+			return year,month,day
+		else:
+			month = 1
+			year += 1
+			return year,month,day
+
+print nextDay(2012,9,30)
+
+def dateIsBefore(year1,month1,day1,year2,month2,day2):
+	''' define a procedure to help deside whether the date1 is before
+	the date2. '''
+	if year1 < year2:
+		return True
+	else:
+		if month1 < month2:
+			return True
+		else:
+			if day1 < day2:
+				return True
+	return False
+
+print dateIsBefore(2012,10,29,2012,10,30)
+
+def daysBetweenDates1(year1, month1, day1, year2, month2, day2):
+    """Returns the number of days between year1/month1/day1
+       and year2/month2/day2. Assumes inputs are valid dates
+       in Gregorian calendar, and the first date is not after
+       the second."""
+        
+    # YOUR CODE HERE!
+    days = 0
+    while dateIsBefore(year1, month1, day1, year2, month2, day2):
+    	year1 = nextDay(year1,month1,day1)[0]
+    	month1 = nextDay(year1,month1,day1)[1]
+    	day1 = nextDay(year1,month1,day1)[2]
+        days += 1
+        
+    return days
