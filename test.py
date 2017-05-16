@@ -12,4 +12,3 @@ def unique_number(n):
 	return sum
 
 print unique_number(5)
-
