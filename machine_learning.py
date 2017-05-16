@@ -416,8 +416,9 @@ def daysBetweenDates1(year1, month1, day1, year2, month2, day2):
 def test():
 	test_cases = [((2012,9,30,2012,10,30),30),
 				  ((2012,1,1,2013,1,1),360),
-	              ((2012,9,1,2012,9,4),3)]
-	for (args,answer) in test_cases:
+	              ((2012,9,1,2012,9,4),3),
+	              ((2013,1,1,1999,12,31), "AssertionError")]
+	for (args, answer) in test_cases:
 		try:
 			result = daysBetweenDates1(*args)
     		if result != answer:
@@ -429,5 +430,24 @@ def test():
     			print 'Nice job! Test case {0} correctly raises AssertionError\n'.format(args)
     		else:
     			print 'Check your work! Test case {0} should not raise AssertionError!\n'.format(args)
+
+# def test():
+#     test_cases = [((2012,9,30,2012,10,30),30), 
+#                   ((2012,1,1,2013,1,1),360),
+#                   ((2012,9,1,2012,9,4),3),
+#                   ((2013,1,1,1999,12,31), "AssertionError")]
+    
+#     for (args, answer) in test_cases:
+#         try:
+#             result = daysBetweenDates1(*args)
+#             if result != answer:
+#                 print "Test with data:", args, "failed"
+#             else:
+#                 print "Test case passed!"
+#         except AssertionError:
+#             if answer == "AssertionError":
+#                 print "Nice job! Test case {0} correctly raises AssertionError!\n".format(args)
+#             else:
+#                 print "Check your work! Test case {0} should not raise AssertionError!\n".format(args)
 
 test()
