@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 from random import randint
+import os
 
 def udacify(s):
 	return 'U' + s
@@ -681,3 +682,12 @@ def play_game1(ml_string, parts_of_speech):
 	return replaced
 
 print play_game(test_string, parts_of_speech)       
+
+file_name = "23sfg.jpg"
+file_name.translate(None,"0123456789")
+print file_name
+
+name = raw_input("What's your name? ")
+print("Nice to meet you " + name + "!")
+age = input("Your age? ")
+print("So, you are already " + str(age) + " years old, " + name + "!")
