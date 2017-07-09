@@ -3,7 +3,7 @@
 import webbrowser
 
 class Movie():
-	""" 一个简单的电影网站"""
+	""" 我最喜欢的电影"""
 
 	VALID_RATINGS = ['G','PG','PG-13','R']
 

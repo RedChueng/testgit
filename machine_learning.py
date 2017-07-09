@@ -2,6 +2,8 @@
 
 from random import randint
 import os
+from vector import Vector
+from line import Line
 
 def udacify(s):
 	return 'U' + s
@@ -687,7 +689,130 @@ file_name = "23sfg.jpg"
 file_name.translate(None,"0123456789")
 print file_name
 
-name = raw_input("What's your name? ")
-print("Nice to meet you " + name + "!")
-age = input("Your age? ")
-print("So, you are already " + str(age) + " years old, " + name + "!")
+# name = raw_input("What's your name? ")
+# print("Nice to meet you " + name + "!")
+# age = input("Your age? ")
+# print("So, you are already " + str(age) + " years old, " + name + "!")
+
+print str(6.00/50 * 100) + '%'
+
+print 2.0/35
+
+print 3986.0/(1+2+10+59+206+454+1323+3986+1851+9)
+
+print 50.45+23.43+0.11+16.74
+
+print 2017-1920
+
+print (48670+57320+38150+41290+53160+500000)/6
+
+print (48670+53160)/2
+
+print (78600 - 21180)/4 + 21180
+
+print 116020-7350
+
+print (54135+53595)/2 - (43420+49191)/2
+
+print 49191 - 1.5 * (54135 - 49191)
+
+print 54135 + 1.5 * (54135 - 49191)
+
+print 88830 - 52793.8
+
+print (190.0 - 63.0) / 36
+
+print (208.0 - 54.0) / 60
+
+print (190.0 - 99.0) / 36
+
+print 2.5 * 36 + 190 
+
+print (210.0 - 190) / 36
+
+i = randint(1,1048)
+
+print i
+
+my_vector = Vector([1,2,3])
+print my_vector
+my_vector1 = Vector([1,2,3])
+my_vector2 = Vector([-1,2,3])
+print my_vector == my_vector1
+print my_vector1 == my_vector2
+
+vector1 = Vector([8.218, -9.341])
+vector2 = Vector([-1.129, 2.111])
+vector3 = Vector([7.119, 8.215])
+vector4 = Vector([-8.223, 0.878])
+vector5 = Vector([1.671, -1.012, -0.318])
+
+print Vector.plus(vector1, vector2)
+print Vector.minus(vector3, vector4)
+print Vector.times_scalar(vector5, 7.41)
+
+vector6 = Vector([-0.221, 7.437])
+vector7 = Vector([5.581, -2.136])
+vector8 = Vector([8.813, -1.331, -6.247])
+vector9 = Vector([1.996, 3.108, -4.554])
+
+print vector6.magnitude()
+print vector7.normalized()
+print vector8.magnitude()
+print vector9.normalized()
+
+vector10 = Vector([7.887, 4.138])
+vector11 = Vector([-8.802, 6.776])
+vector12 = Vector([3.183, -7.627])
+vector13 = Vector([-2.668, 5.319])
+vector14 = Vector([-5.955, -4.904, -1.874])
+vector15 = Vector([-4.496, -8.755, 7.103])
+vector16 = Vector([7.35, 0.221, 5.188])
+vector17 = Vector([2.751, 8.259, 3.985])
+
+print vector10.dot_product(vector11)
+print vector12.angle(vector13, in_degrees=False)
+print vector14.dot_product(vector15)
+print vector16.angle(vector17, in_degrees=True)
+
+print 'first pair...'
+v = Vector([-7.579, -7.88])
+w = Vector([22.737, 23.64])
+# print v.angle(w)
+# print 'is parallel:', v.is_parallel_to(w)
+print 'is orthogonal:', v.is_orthogonal_to(w)
+
+print 'second pair...'
+v = Vector([-2.029, 9.97, 4.172])
+w = Vector([-9.231, -6.639, -7.245])
+print 'is parallel:', v.is_parallel_to(w)
+print 'is orthogonal:', v.is_orthogonal_to(w)
+
+print 'third pair...'
+v = Vector([-2.328, -7.284, -1.214])
+w = Vector([-1.821, 1.072, -2.94])
+print 'is parallel:', v.is_parallel_to(w)
+print 'is orthogonal:', v.is_orthogonal_to(w)
+
+print 'fourth pair...'
+v = Vector([2.118, 4.827])
+w = Vector([0,0])
+print 'is parallel:', v.is_parallel_to(w)
+print 'is orthogonal:', v.is_orthogonal_to(w)
+
+v = Vector([8.462, 7.893, -8.187])
+w = Vector([6.984, -5.975, 4.778])
+print '#1:' , v.cross_product(w)
+
+v = Vector([-8.987, -9.838, 5.031])
+w = Vector([-4.268, -1.861, -8.866])
+print '#2:' , v.area_of_parallelogram_with(w)
+
+v = Vector([1.5, 9.547, 3.691])
+w = Vector([-6.007, 0.124, 5.772])
+print '#3:' , v.area_of_triangle_with(w)
+
+
+ell1 = Line(normal_vector = Vector(['4.046', '2.836']), constant_term = '1.21')
+ell2 = Line(normal_vector = Vector(['10.115', '7.09']), constant_term = '3.025')
+print '#1: ', ell1.intersection_with(ell2)
